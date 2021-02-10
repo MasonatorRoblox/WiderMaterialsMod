@@ -41,7 +41,7 @@ namespace WiderMaterials
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
 			this.isEnabled = true;
 			this.isCheat = false;
-			this.authors = new string[] {"Mason (MasonatorRoblox)"};
+			this.authors = new string[] {"Mason (MasonatorRoblox)", "Conqu3red", "MoonlitJolty"};
 			PolyTechMain.registerMod(this);
 		}
 
