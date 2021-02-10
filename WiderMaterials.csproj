@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="0Harmony">
+    <Reference Include="HarmonyX">
       <HintPath>Libraries\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">

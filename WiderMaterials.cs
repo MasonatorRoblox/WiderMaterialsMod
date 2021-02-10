@@ -15,14 +15,14 @@ using PolyTechFramework;
 
 namespace WiderMaterials
 {
-	[BepInPlugin("polytech.widerMaterials", "Wider Materials", "2.0")]
+	[BepInPlugin("polytech.widerMaterials", "Wider Materials", "2.1.0")]
 	[BepInProcess("Poly Bridge 2")]
 	[BepInDependency(PolyTechMain.PluginGuid, BepInDependency.DependencyFlags.HardDependency)]
 	public class WiderMaterialsMain : PolyTechMod
 	{
 		public void Awake()
 		{
-			base.Config.Bind<float>(WiderMaterialsMain.RoadWidthDef, 1.15f, new ConfigDescription("Road Width (1f is the default value)", null));
+			base.Config.Bind<float>(WiderMaterialsMain.RoadWidthDef, 1f, new ConfigDescription("Road Width (1f is the default value)", null));
             WiderMaterialsMain.RoadWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.RoadWidthDef];
 			base.Config.Bind<float>(WiderMaterialsMain.WoodWidthDef, 1f, new ConfigDescription("Wood Width (1f is the default value)", null));
             WiderMaterialsMain.WoodWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.WoodWidthDef];
@@ -39,9 +39,9 @@ namespace WiderMaterials
             //WiderMaterialsMain.SpringWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.SpringWidthDef];
 			Harmony harmony = new Harmony("polytech.widerMaterials");
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
-			base.Logger.LogInfo(string.Format("Loaded {0} v{1}", "Wider Roads", "1.0"));
 			this.isEnabled = true;
 			this.isCheat = false;
+			this.authors = new string[] {"Mason (MasonatorRoblox)"};
 			PolyTechMain.registerMod(this);
 		}
 
@@ -80,17 +80,17 @@ namespace WiderMaterials
 				//bool rope = __instance.m_Material.m_MaterialType == BridgeMaterialType.ROPE;
 				//if (rope)
 				//{
-					//TransformExtension.SetLocalScaleZ(__instance.m_MeshRenderer.transform, WiderMaterialsMain.RopeWidth.Value);
+				//	TransformExtension.SetLocalScaleZ(__instance.m_MeshRenderer.transform, WiderMaterialsMain.RopeWidth.Value);
 				//}
 				//bool cable = __instance.m_Material.m_MaterialType == BridgeMaterialType.CABLE;
 				//if (cable)
 				//{
-					//TransformExtension.SetLocalScaleZ(__instance.m_MeshRenderer.transform, WiderMaterialsMain.CableWidth.Value);
+				//	TransformExtension.SetLocalScaleZ(__instance.m_MeshRenderer.transform, WiderMaterialsMain.CableWidth.Value);
 				//}
 				//bool spring = __instance.m_Material.m_MaterialType == BridgeMaterialType.SPRING;
 				//if (spring)
 				//{
-					//TransformExtension.SetLocalScaleZ(__instance.m_MeshRenderer.transform, WiderMaterialsMain.SpringWidth.Value);
+				//	TransformExtension.SetLocalScaleZ(__instance.m_MeshRenderer.transform, WiderMaterialsMain.SpringWidth.Value);
 				//}
 			}
 		}
