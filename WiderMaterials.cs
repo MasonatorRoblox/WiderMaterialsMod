@@ -37,6 +37,7 @@ namespace WiderMaterials
             //WiderMaterialsMain.CableWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.CableWidthDef];
 			//base.Config.Bind<float>(WiderMaterialsMain.SpringWidthDef, 1f, new ConfigDescription("Spring Width (1f is the default value)", null));
             //WiderMaterialsMain.SpringWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.SpringWidthDef];
+			this.repositoryUrl = "https://github.com/MasonatorRoblox/WiderMaterialsMod/";
 			Harmony harmony = new Harmony("polytech.widerMaterials");
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
 			this.isEnabled = true;
