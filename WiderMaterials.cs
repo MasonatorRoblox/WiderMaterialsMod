@@ -15,13 +15,16 @@ using PolyTechFramework;
 
 namespace WiderMaterials
 {
-	[BepInPlugin("polytech.widerMaterials", "Wider Materials", "2.1.0")]
+	[BepInPlugin("polytech.widerMaterials", "Wider Materials", "2.2.0")]
 	[BepInProcess("Poly Bridge 2")]
 	[BepInDependency(PolyTechMain.PluginGuid, BepInDependency.DependencyFlags.HardDependency)]
 	public class WiderMaterialsMain : PolyTechMod
 	{
 		public void Awake()
 		{
+			base.Config.Bind(ModEnabledDef, true, new ConfigDescription("Enable Mod (Material width will refresh on sim start/end)", null));
+			WiderMaterialsMain.ModEnabled = (ConfigEntry<bool>)base.Config[ModEnabledDef];
+			ModEnabled.SettingChanged += onEnableDisable;
 			base.Config.Bind<float>(WiderMaterialsMain.RoadWidthDef, 1f, new ConfigDescription("Road Width (1f is the default value)", null));
             WiderMaterialsMain.RoadWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.RoadWidthDef];
 			base.Config.Bind<float>(WiderMaterialsMain.WoodWidthDef, 1f, new ConfigDescription("Wood Width (1f is the default value)", null));
@@ -46,11 +49,19 @@ namespace WiderMaterials
 			PolyTechMain.registerMod(this);
 		}
 
-		public const string pluginGuid = "polytech.widerMaterials";
+		private void onEnableDisable(object sender, EventArgs e)
+        {
+            if (ModEnabled.Value) enableMod();
+            else disableMod();
+            this.isEnabled = ModEnabled.Value;
+		}
+		public override void enableMod()
+        {
+        }
 
-		public const string pluginName = "Wider Roads";
-
-		public const string pluginVerson = "1.0";
+        public override void disableMod()
+		{			
+		}
 		
 		[HarmonyPatch(typeof(BridgeEdge))]
 		[HarmonyPatch("_UpdateTransform")]
@@ -58,6 +69,7 @@ namespace WiderMaterials
 		{
 			public static void Postfix(BridgeEdge __instance)
 			{
+				if(!ModEnabled.Value) return;
 				bool road = __instance.m_Material.m_MaterialType == BridgeMaterialType.ROAD || __instance.m_Material.m_MaterialType == BridgeMaterialType.REINFORCED_ROAD;
 				if (road)
 				{
@@ -95,6 +107,8 @@ namespace WiderMaterials
 				//}
 			}
 		}
+		public static ConfigDefinition ModEnabledDef = new ConfigDefinition("Enable/Disable", "Enabled");
+        public static ConfigEntry<bool> ModEnabled;
 		public static ConfigDefinition RoadWidthDef = new ConfigDefinition("Material Width", "Road Width");
         public static ConfigEntry<float> RoadWidth;
 		public static ConfigDefinition WoodWidthDef = new ConfigDefinition("Material Width", "Wood Width");
