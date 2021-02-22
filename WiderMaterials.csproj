@@ -39,6 +39,9 @@
     <Reference Include="PolyTechFramework">
       <HintPath>Libraries\PolyTechFramework.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>Libraries\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
