@@ -42,9 +42,9 @@ namespace WiderMaterials
 			base.Config.Bind<float>(WiderMaterialsMain.RopeWidthDef, 1f, new ConfigDescription("Rope Width (1f is the default value)", null, new ConfigurationManagerAttributes { Order = order }));
            	WiderMaterialsMain.RopeWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.RopeWidthDef];
 			order--;
-			base.Config.Bind<float>(WiderMaterialsMain.CableWidthDef, 1f, new ConfigDescription("Cable Width (1f is the default value)", null, new ConfigurationManagerAttributes { Order = order }));
-            WiderMaterialsMain.CableWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.CableWidthDef];
-			order--;
+			//base.Config.Bind<float>(WiderMaterialsMain.CableWidthDef, 1f, new ConfigDescription("Cable Width (1f is the default value)", null, new ConfigurationManagerAttributes { Order = order }));
+            //WiderMaterialsMain.CableWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.CableWidthDef];
+			//order--;
 			//base.Config.Bind<float>(WiderMaterialsMain.SpringWidthDef, 1f, new ConfigDescription("Spring Width (1f is the default value)", null, new ConfigurationManagerAttributes { Order = order }));
             //WiderMaterialsMain.SpringWidth = (ConfigEntry<float>)base.Config[WiderMaterialsMain.SpringWidthDef];
 			this.repositoryUrl = "https://github.com/MasonatorRoblox/WiderMaterialsMod/";
@@ -165,8 +165,8 @@ namespace WiderMaterials
         public static ConfigEntry<float> HydraulicWidth;
 		public static ConfigDefinition RopeWidthDef = new ConfigDefinition("Material Width", "Rope Width");
         public static ConfigEntry<float> RopeWidth;
-		public static ConfigDefinition CableWidthDef = new ConfigDefinition("Material Width", "Cable Width");
-        public static ConfigEntry<float> CableWidth;
+		//public static ConfigDefinition CableWidthDef = new ConfigDefinition("Material Width", "Cable Width");
+        //public static ConfigEntry<float> CableWidth;
 		//public static ConfigDefinition SpringWidthDef = new ConfigDefinition("Material Width", "Spring Width");
         //public static ConfigEntry<float> SpringWidth;
 
