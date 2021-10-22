@@ -3,7 +3,7 @@ Allows you to modify the visual width of road, wood, steel, hydraulics, rope/cab
 
 
 ### To change the width of a material:
-Edit the corresponding value for that material
+Edit the corresponding value for that material.
 
 ### To save the width of a material for later use:
 Click the "Save Preset" button in that material's row.
