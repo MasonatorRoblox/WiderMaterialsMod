@@ -1,4 +1,4 @@
-# WiderMaterialsMod
+# Wider Materials Mod
 Allows you to modify the visual width of road, wood, steel, hydraulics, rope/cable, and springs, with separate values for (almost) all. This is a direct improvement to the Wider Roads mod.
 
 
